@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { gsap, ScrollTrigger } from '@/lib/gsap'
+import { asset } from '@/lib/asset'
 import { couple, weddingDate } from '@/config/wedding'
 
 /**
@@ -75,10 +76,10 @@ export default function Hero() {
   }, [])
 
   return (
-    <section ref={rootRef} className="relative h-[100svh] w-full overflow-hidden bg-[#DCEEF7]">
+    <section ref={rootRef} className="relative h-svh w-full overflow-hidden bg-[#DCEEF7]">
       <img
         ref={skyRef}
-        src="/sky.png"
+        src={asset('/sky.png')}
         alt=""
         draggable={false}
         className="absolute inset-0 h-[120%] w-full object-cover object-top"
@@ -86,29 +87,29 @@ export default function Hero() {
 
       <img
         ref={cloud1Ref}
-        src="/cloud_1.png"
+        src={asset('/cloud_1.png')}
         alt=""
         draggable={false}
-        className="absolute left-[-4%] top-[12%] w-[38%] max-w-[420px] opacity-90 mix-blend-multiply"
+        className="absolute left-[-4%] top-[12%] w-[38%] max-w-105 opacity-90 mix-blend-multiply"
       />
       <img
         ref={cloud2Ref}
-        src="/cloud_2.png"
+        src={asset('/cloud_2.png')}
         alt=""
         draggable={false}
-        className="absolute right-[-6%] top-[22%] w-[34%] max-w-[380px] opacity-80 mix-blend-multiply"
+        className="absolute right-[-6%] top-[22%] w-[34%] max-w-95 opacity-80 mix-blend-multiply"
       />
       <img
         ref={cloud3Ref}
-        src="/cloud_3.png"
+        src={asset('/cloud_3.png')}
         alt=""
         draggable={false}
-        className="absolute left-[18%] top-[6%] w-[24%] max-w-[280px] opacity-70 mix-blend-multiply"
+        className="absolute left-[18%] top-[6%] w-[24%] max-w-70 opacity-70 mix-blend-multiply"
       />
 
       <img
         ref={templeRef}
-        src="/temple with tree.png"
+        src={asset('/temple with tree.png')}
         alt="Temple gopuram amid palm trees"
         draggable={false}
         className="absolute inset-x-0 bottom-0 h-[62%] w-full object-cover object-bottom sm:h-[70%]"
@@ -142,7 +143,7 @@ export default function Hero() {
         <span className="font-sans text-[10px] uppercase tracking-[0.35em] text-white/90 drop-shadow-sm">
           Scroll
         </span>
-        <span className="h-6 w-[1px] animate-pulse bg-white/80" />
+        <span className="h-6 w-px animate-pulse bg-white/80" />
       </div>
     </section>
   )

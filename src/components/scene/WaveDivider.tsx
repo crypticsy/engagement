@@ -1,3 +1,5 @@
+import { asset } from '@/lib/asset'
+
 interface WaveDividerProps {
   flip?: boolean
   className?: string
@@ -14,7 +16,7 @@ export default function WaveDivider({ flip = false, className = '' }: WaveDivide
       aria-hidden
     >
       <img
-        src="/waves.png"
+        src={asset('/waves.png')}
         alt=""
         draggable={false}
         className="h-full w-full object-cover"

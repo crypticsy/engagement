@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { asset } from '@/lib/asset'
 
 interface Props {
   /** Called once the clip has finished playing */
@@ -82,7 +83,7 @@ export default function IntroVideo({ onFinished }: Props) {
     <div className="fixed inset-0 z-50 bg-[#120A06]">
       <video
         ref={videoRef}
-        src="/start.mp4"
+        src={asset('/start.mp4')}
         muted
         playsInline
         preload="auto"

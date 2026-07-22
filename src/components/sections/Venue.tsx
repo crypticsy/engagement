@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from '@/lib/gsap'
 import Reveal from '@/components/ui/Reveal'
 import SectionLabel from '@/components/ui/SectionLabel'
+import { asset } from '@/lib/asset'
 import { venue } from '@/config/wedding'
 
 export default function Venue() {
@@ -29,7 +30,7 @@ export default function Venue() {
       <Reveal className="relative mx-auto mt-12 max-w-3xl sm:mt-14">
         <img
           ref={mandapRef}
-          src="/mandap.png"
+          src={asset('/mandap.png')}
           alt="Decorated engagement mandapam"
           draggable={false}
           className="mx-auto w-full max-w-lg"
