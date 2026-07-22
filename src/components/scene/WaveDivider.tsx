@@ -1,4 +1,4 @@
-import { asset } from '@/lib/asset'
+import waves from '@/assets/waves.png'
 
 interface WaveDividerProps {
   flip?: boolean
@@ -6,7 +6,7 @@ interface WaveDividerProps {
 }
 
 /**
- * public/waves.png as a full-bleed section seam. Flips vertically so the
+ * waves.png as a full-bleed section seam. Flips vertically so the
  * same asset can close a section from above or introduce one from below.
  */
 export default function WaveDivider({ flip = false, className = '' }: WaveDividerProps) {
@@ -16,7 +16,7 @@ export default function WaveDivider({ flip = false, className = '' }: WaveDivide
       aria-hidden
     >
       <img
-        src={asset('/waves.png')}
+        src={waves}
         alt=""
         draggable={false}
         className="h-full w-full object-cover"

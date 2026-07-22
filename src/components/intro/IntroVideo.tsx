@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { asset } from '@/lib/asset'
+import startVideo from '@/assets/start.mp4'
 
 interface Props {
   /** Called once the clip has finished playing */
@@ -83,7 +83,7 @@ export default function IntroVideo({ onFinished }: Props) {
     <div className="fixed inset-0 z-50 bg-[#120A06]">
       <video
         ref={videoRef}
-        src={asset('/start.mp4')}
+        src={startVideo}
         muted
         playsInline
         preload="auto"
@@ -104,17 +104,24 @@ export default function IntroVideo({ onFinished }: Props) {
           started ? 'opacity-0' : ready ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <span className="font-sans text-[11px] uppercase tracking-[0.35em] text-white/80">
+        <span
+          className="font-sans text-[11px] uppercase tracking-[0.35em] text-white"
+          style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85), 0 1px 12px rgba(0,0,0,0.5)' }}
+        >
           Scroll to begin
         </span>
-        <span className="h-8 w-[1px] animate-pulse bg-white/60" />
+        <span
+          className="h-8 w-[1px] animate-pulse bg-white"
+          style={{ filter: 'drop-shadow(0 1px 3px rgba(0,0,0,0.85))' }}
+        />
       </div>
 
       {/* Skip affordance */}
       <button
         type="button"
         onClick={onFinished}
-        className="absolute right-5 top-5 font-sans text-[11px] uppercase tracking-[0.25em] text-white/50 transition-colors hover:text-white/90 sm:right-8 sm:top-8"
+        className="absolute right-5 top-5 font-sans text-[11px] uppercase tracking-[0.25em] text-white/90 transition-colors hover:text-white sm:right-8 sm:top-8"
+        style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85), 0 1px 12px rgba(0,0,0,0.5)' }}
       >
         Skip
       </button>

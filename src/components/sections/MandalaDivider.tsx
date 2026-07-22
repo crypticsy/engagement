@@ -25,7 +25,7 @@ export default function MandalaDivider() {
       </div>
 
       <Reveal className="relative flex flex-col items-center gap-4 text-center">
-        <span className="font-tamil text-2xl text-[#7C2233]">ஸ்ரீ</span>
+        <span className="font-kannada text-2xl text-[#7C2233]">ಶ್ರೀ</span>
         <p className="max-w-sm font-serif text-xl italic leading-relaxed text-[#3A2617]">
           "May this new bond be blessed with the warmth of family, the strength of tradition,
           and a lifetime of togetherness ahead."

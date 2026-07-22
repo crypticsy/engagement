@@ -8,7 +8,7 @@ export const couple = {
   brideFull: 'Diksha Sharma',
   groomFull: 'Rahul Rao',
   hashtag: '#RahulAndDikshaGetEngaged',
-  tamilLine: 'திருமண அழைப்பிதழ்',
+  kannadaLine: 'ನಿಶ್ಚಿತಾರ್ಥದ ಆಹ್ವಾನ',
 } as const
 
 export const weddingDate = {
@@ -31,7 +31,7 @@ export const venue = {
 export interface WeddingEvent {
   id: string
   title: string
-  tamil?: string
+  kannada?: string
   date: string
   time: string
   place: string
@@ -42,7 +42,7 @@ export const events: WeddingEvent[] = [
   {
     id: 'mehendi',
     title: 'Mehendi & Sangeet',
-    tamil: 'மருதாணி',
+    kannada: 'ಗೋರಂಟಿ',
     date: 'Friday, 12th February',
     time: '5:00 PM onwards',
     place: 'Ocean Pearl Resort, Someshwara Beach, Mangalore',
@@ -52,7 +52,7 @@ export const events: WeddingEvent[] = [
   {
     id: 'nischayathartham',
     title: 'Nischayathartham',
-    tamil: 'நிச்சயதார்த்தம்',
+    kannada: 'ನಿಶ್ಚಿತಾರ್ಥ',
     date: 'Sunday, 14th February',
     time: '6:30 – 7:15 AM',
     place: 'Shree Kadri Kalyana Mantapa',
@@ -62,7 +62,7 @@ export const events: WeddingEvent[] = [
   {
     id: 'reception',
     title: 'Reception',
-    tamil: 'வரவேற்பு',
+    kannada: 'ಸ್ವಾಗತ ಸಮಾರಂಭ',
     date: 'Sunday, 14th February',
     time: '7:00 – 10:00 PM',
     place: 'Shree Kadri Kalyana Mantapa — Banquet Lawn',

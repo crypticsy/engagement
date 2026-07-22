@@ -2,7 +2,7 @@ import { useState, type FormEvent } from 'react'
 import Reveal from '@/components/ui/Reveal'
 import SectionLabel from '@/components/ui/SectionLabel'
 import Mandala from '@/components/scene/Mandala'
-import { contacts, couple, events, rsvpEndpoint } from '@/config/wedding'
+import { couple, events, rsvpEndpoint } from '@/config/wedding'
 import { isValidRsvpEndpoint, submitRsvp } from '@/lib/submitRsvp'
 
 type Status = 'idle' | 'submitting' | 'success' | 'error'
@@ -55,7 +55,7 @@ export default function Rsvp() {
           className="pointer-events-none absolute w-72 h-72 opacity-15 sm:w-[420px] sm:h-[420px]"
         />
         <Reveal className="relative flex flex-col items-center gap-5">
-          <span className="font-tamil text-2xl text-[#7C2233]">நன்றி</span>
+          <span className="font-kannada text-2xl text-[#7C2233]">ಧನ್ಯವಾದಗಳು</span>
           <h2 className="font-serif text-3xl text-[#2A1B12] sm:text-4xl">Thank you, {name.split(' ')[0]}</h2>
           <p className="max-w-sm font-sans text-sm leading-relaxed text-[#6B5A4E]">
             {attending === 'yes'
@@ -77,7 +77,7 @@ export default function Rsvp() {
         className="pointer-events-none absolute -left-20 -top-16 w-56 h-56 opacity-10 sm:-left-32 sm:-top-24 sm:w-[480px] sm:h-[480px] sm:opacity-[0.12]"
       />
 
-      <SectionLabel eyebrow="Kindly respond" title="Will You Join Us?" tamil="வருகை உறுதி" />
+      <SectionLabel eyebrow="Kindly respond" title="Will You Join Us?" kannada="ಹಾಜರಾತಿ ಖಚಿತಪಡಿಸಿ" />
 
       <Reveal className="relative mx-auto mt-12 max-w-lg sm:mt-14">
         <form
@@ -218,17 +218,6 @@ export default function Rsvp() {
             </p>
           )}
         </form>
-      </Reveal>
-
-      <Reveal delay={0.15} className="relative mx-auto mt-12 flex max-w-lg flex-col items-center gap-2 text-center">
-        <span className="font-sans text-[11px] uppercase tracking-[0.25em] text-[#A8455A]">
-          Questions? Reach out
-        </span>
-        {contacts.map((c) => (
-          <span key={c.phone} className="font-sans text-sm text-[#6B5A4E]">
-            {c.name} — {c.phone}
-          </span>
-        ))}
       </Reveal>
     </section>
   )

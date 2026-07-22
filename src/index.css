@@ -3,7 +3,7 @@
 @theme {
   --font-serif: 'Fraunces', ui-serif, Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
-  --font-tamil: 'Karla Tamil Inclined', 'Inter', system-ui, sans-serif;
+  --font-kannada: 'Noto Serif Kannada', 'Inter', system-ui, sans-serif;
 }
 
 @layer base {

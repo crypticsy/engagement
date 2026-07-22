@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from '@/lib/gsap'
 import Reveal from '@/components/ui/Reveal'
 import SectionLabel from '@/components/ui/SectionLabel'
-import { asset } from '@/lib/asset'
+import mandap from '@/assets/mandap.png'
 import { venue } from '@/config/wedding'
 
 export default function Venue() {
@@ -25,12 +25,12 @@ export default function Venue() {
 
   return (
     <section className="relative overflow-hidden bg-[#F5E9D8] px-6 pb-24 pt-6 sm:px-6 sm:pb-28 lg:pb-32">
-      <SectionLabel eyebrow="Where to find us" title="The Venue" tamil="இடம்" />
+      <SectionLabel eyebrow="Where to find us" title="The Venue" kannada="ಸ್ಥಳ" />
 
       <Reveal className="relative mx-auto mt-12 max-w-3xl sm:mt-14">
         <img
           ref={mandapRef}
-          src={asset('/mandap.png')}
+          src={mandap}
           alt="Decorated engagement mandapam"
           draggable={false}
           className="mx-auto w-full max-w-lg"

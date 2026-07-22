@@ -1,6 +1,10 @@
 import { useEffect, useRef } from 'react'
 import { gsap, ScrollTrigger } from '@/lib/gsap'
-import { asset } from '@/lib/asset'
+import sky from '@/assets/sky.png'
+import cloud1 from '@/assets/cloud_1.png'
+import cloud2 from '@/assets/cloud_2.png'
+import cloud3 from '@/assets/cloud_3.png'
+import templeWithTree from '@/assets/temple-with-tree.png'
 import { couple, weddingDate } from '@/config/wedding'
 
 /**
@@ -79,7 +83,7 @@ export default function Hero() {
     <section ref={rootRef} className="relative h-svh w-full overflow-hidden bg-[#DCEEF7]">
       <img
         ref={skyRef}
-        src={asset('/sky.png')}
+        src={sky}
         alt=""
         draggable={false}
         className="absolute inset-0 h-[120%] w-full object-cover object-top"
@@ -87,21 +91,21 @@ export default function Hero() {
 
       <img
         ref={cloud1Ref}
-        src={asset('/cloud_1.png')}
+        src={cloud1}
         alt=""
         draggable={false}
         className="absolute left-[-4%] top-[12%] w-[38%] max-w-105 opacity-90 mix-blend-multiply"
       />
       <img
         ref={cloud2Ref}
-        src={asset('/cloud_2.png')}
+        src={cloud2}
         alt=""
         draggable={false}
         className="absolute right-[-6%] top-[22%] w-[34%] max-w-95 opacity-80 mix-blend-multiply"
       />
       <img
         ref={cloud3Ref}
-        src={asset('/cloud_3.png')}
+        src={cloud3}
         alt=""
         draggable={false}
         className="absolute left-[18%] top-[6%] w-[24%] max-w-70 opacity-70 mix-blend-multiply"
@@ -109,7 +113,7 @@ export default function Hero() {
 
       <img
         ref={templeRef}
-        src={asset('/temple with tree.png')}
+        src={templeWithTree}
         alt="Temple gopuram amid palm trees"
         draggable={false}
         className="absolute inset-x-0 bottom-0 h-[62%] w-full object-cover object-bottom sm:h-[70%]"
@@ -125,7 +129,7 @@ export default function Hero() {
         ref={titleRef}
         className="pointer-events-none absolute inset-x-0 top-[18%] flex flex-col items-center gap-5 px-6 text-center sm:top-[16%]"
       >
-        <span className="font-tamil text-lg text-[#5B4430]/80 sm:text-xl">{couple.tamilLine}</span>
+        <span className="font-kannada text-lg text-[#5B4430]/80 sm:text-xl">{couple.kannadaLine}</span>
         <span className="font-sans text-[11px] uppercase tracking-[0.4em] text-[#5B4430]/70">
           Together with our families
         </span>
@@ -140,10 +144,16 @@ export default function Hero() {
       </div>
 
       <div className="pointer-events-none absolute inset-x-0 bottom-8 flex flex-col items-center gap-2">
-        <span className="font-sans text-[10px] uppercase tracking-[0.35em] text-white/90 drop-shadow-sm">
+        <span
+          className="font-sans text-[10px] uppercase tracking-[0.35em] text-white"
+          style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85), 0 1px 12px rgba(0,0,0,0.5)' }}
+        >
           Scroll
         </span>
-        <span className="h-6 w-px animate-pulse bg-white/80" />
+        <span
+          className="h-6 w-px animate-pulse bg-white"
+          style={{ filter: 'drop-shadow(0 1px 3px rgba(0,0,0,0.85))' }}
+        />
       </div>
     </section>
   )

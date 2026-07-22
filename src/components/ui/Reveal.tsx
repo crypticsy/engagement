@@ -4,12 +4,13 @@ import { gsap, ScrollTrigger } from '@/lib/gsap'
 interface RevealProps {
   children: ReactNode
   className?: string
+  id?: string
   delay?: number
   y?: number
 }
 
 /** Fades + lifts its children in once they cross into the viewport. */
-export default function Reveal({ children, className = '', delay = 0, y = 28 }: RevealProps) {
+export default function Reveal({ children, className = '', id, delay = 0, y = 28 }: RevealProps) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
@@ -36,7 +37,7 @@ export default function Reveal({ children, className = '', delay = 0, y = 28 }: 
   }, [delay, y])
 
   return (
-    <div ref={ref} className={className}>
+    <div ref={ref} id={id} className={className}>
       {children}
     </div>
   )

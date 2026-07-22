@@ -1,5 +1,8 @@
 import Reveal from '@/components/ui/Reveal'
 import Mandala from '@/components/scene/Mandala'
+import girl from '@/assets/girl.png'
+import boy from '@/assets/boy.png'
+import brassUrli from '@/assets/brass-urli.png'
 import { couple, hosts, weddingDate } from '@/config/wedding'
 
 /**
@@ -9,7 +12,7 @@ import { couple, hosts, weddingDate } from '@/config/wedding'
  */
 export default function Welcome() {
   return (
-    <section className="relative overflow-hidden bg-[#FBF3E7] px-6 py-24 sm:px-6 sm:py-28 lg:py-32">
+    <section className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden bg-[#FBF3E7] px-6 py-24 sm:px-6 sm:py-28 lg:py-32">
       <Mandala
         color="#C08A3E"
         className="pointer-events-none absolute -right-24 -top-24 w-64 h-64 sm:-right-40 sm:-top-40 sm:w-[520px] sm:h-[520px] opacity-[0.08]"
@@ -20,8 +23,27 @@ export default function Welcome() {
       />
 
       <Reveal className="relative mx-auto max-w-xl">
+        <img
+          src={girl}
+          alt=""
+          draggable={false}
+          className="pointer-events-none absolute right-full top-1/2 z-10 h-32 w-auto -translate-y-1/2 object-contain mr-3 sm:mr-6 md:mr-10 lg:mr-16 sm:h-48 md:h-64 lg:h-80"
+        />
+        <img
+          src={boy}
+          alt=""
+          draggable={false}
+          className="pointer-events-none absolute left-full top-1/2 z-10 h-32 w-auto -translate-y-1/2 object-contain ml-3 sm:ml-6 md:ml-10 lg:ml-16 sm:h-48 md:h-64 lg:h-80"
+        />
+        <img
+          src={brassUrli}
+          alt=""
+          draggable={false}
+          className="pointer-events-none absolute -bottom-12 left-1/2 z-10 h-28 w-28 -translate-x-1/2 object-contain sm:-bottom-16 sm:h-36 sm:w-36"
+        />
+
         <div
-          className="relative flex flex-col overflow-hidden rounded-sm border border-[#E4D2B4] bg-[#FFFDF9] px-6 py-12 sm:px-14 sm:py-16"
+          className="relative flex flex-col overflow-hidden rounded-sm border border-[#E4D2B4] bg-[#FFFDF9] px-6 pb-24 pt-12 sm:px-14 sm:pb-32 sm:pt-16"
           style={{ boxShadow: '0 2px 6px rgba(60,40,20,0.06), 0 18px 40px rgba(60,40,20,0.10), 5px 6px 0 #EADFC8' }}
         >
           <div className="absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-[#C08A3E] via-[#E3B872] to-[#7C2233]" />
