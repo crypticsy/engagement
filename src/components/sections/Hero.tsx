@@ -143,17 +143,11 @@ export default function Hero() {
         </h1>
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-8 flex flex-col items-center gap-2">
-        <span
-          className="font-sans text-[10px] uppercase tracking-[0.35em] text-white"
-          style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85), 0 1px 12px rgba(0,0,0,0.5)' }}
-        >
-          Scroll
+      <div className="pointer-events-none absolute inset-x-0 bottom-8 flex flex-col items-center gap-2.5">
+        <span className="flex flex-col items-center gap-2.5 rounded-full bg-black/35 px-4 py-2.5 backdrop-blur-sm">
+          <span className="font-sans text-xs uppercase tracking-[0.35em] text-white">Scroll</span>
+          <span className="h-6 w-px animate-pulse bg-white" />
         </span>
-        <span
-          className="h-6 w-px animate-pulse bg-white"
-          style={{ filter: 'drop-shadow(0 1px 3px rgba(0,0,0,0.85))' }}
-        />
       </div>
     </section>
   )
