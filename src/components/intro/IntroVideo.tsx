@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import startVideo from '@/assets/start.mp4'
+import startPoster from '@/assets/start-poster.jpg'
 import { homeImageAssets } from '@/lib/homeAssets'
 import { preloadImages } from '@/lib/preloadImages'
 
@@ -14,6 +15,11 @@ interface Props {
  * ends, `onFinished` fires so the caller can run the paper transition into
  * the home page. Body scroll is locked for the whole clip so the video is
  * the entire experience, not a backdrop competing with page scroll.
+ *
+ * `poster` is the video's own extracted first frame — mobile browsers on a
+ * metered connection often don't actually buffer video data until playback
+ * is requested, so without it the element renders black until the visitor
+ * scrolls.
  *
  * The home page's artwork is preloaded in the background the whole time
  * this screen is up. `onFinished` is deferred until that preload resolves,
@@ -116,6 +122,7 @@ export default function IntroVideo({ onFinished }: Props) {
       <video
         ref={videoRef}
         src={startVideo}
+        poster={startPoster}
         muted
         playsInline
         preload="auto"

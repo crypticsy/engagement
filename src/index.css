@@ -11,7 +11,11 @@
     scroll-behavior: smooth;
     overflow-x: hidden;
     background: #fbf3e7;
-    overscroll-behavior: none;
+    /* Mobile Safari/Chrome silently bump computed font sizes ("text
+       autosizing") on pages that render narrower content blocks, which is
+       why the site reads oversized on a phone but not in a desktop preview. */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   body {
@@ -25,7 +29,11 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    overscroll-behavior: none;
+    /* Scoped to body only, and to the y-axis only — putting
+       overscroll-behavior on <html> (or using the unscoped shorthand) is
+       known to stall touch scrolling entirely on some Android/Chrome
+       builds right at a section's overflow:hidden boundary (e.g. Hero). */
+    overscroll-behavior-y: none;
   }
 
   ::selection {
