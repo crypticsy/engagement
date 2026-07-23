@@ -1,6 +1,6 @@
 // ─── Paper Distortion Transition ──────────────────────────────────────────
 // WebGL scene-change effect styled after a sheet of paper tearing away,
-// bottom-to-top, to reveal the page underneath. Structurally mirrors the
+// centre-out, to reveal the page underneath. Structurally mirrors the
 // "burn" transition pattern from reference/betweenPages (same shader-driven
 // wipe + onMidpoint/onComplete lifecycle) but re-skinned: fire → torn paper
 // with a lit deckle edge and a soft under-curl shadow instead of flame.
@@ -45,15 +45,25 @@ const FRAG = `
   void main() {
     vec2 uv = gl_FragCoord.xy / u_res;
 
-    // Deckled, irregular tear line — layered noise stretched horizontally so
-    // the tear reads as a ragged paper edge rather than a smooth wipe.
-    float n1 = fbm(vec2(uv.x * 2.2, uv.y * 6.0) + vec2(u_time * 0.03, 0.0));
-    float n2 = fbm(vec2(uv.x * 5.0, uv.y * 12.0) - vec2(u_time * 0.02, 0.0));
+    // Aspect-corrected, centred coordinates so both the radial sweep and
+    // the noise sampled from it stay circular/isotropic instead of
+    // stretching into an ellipse on tall/wide viewports.
+    float aspect = u_res.x / u_res.y;
+    vec2 centered = vec2((uv.x - 0.5) * aspect, uv.y - 0.5);
+    float maxDist = length(vec2(aspect * 0.5, 0.5));
+    float dist = length(centered) / maxDist;
+
+    // Deckled, irregular edge — layered noise sampled isotropically (equal
+    // frequency in x/y) so the ragged tear reads as random all the way
+    // around the growing circle, not just rippling along one axis.
+    vec2 nUv = centered + vec2(0.5);
+    float n1 = fbm(nUv * 3.4 + vec2(u_time * 0.05, u_time * 0.035));
+    float n2 = fbm(nUv * 8.0 - vec2(u_time * 0.04, u_time * 0.06));
     float tear = n1 * 0.65 + n2 * 0.35;
 
-    // Bias the sweep bottom → top: the tear reaches the bottom of the
-    // screen first, as though the sheet is being peeled away and up.
-    float bias = (1.0 - uv.y) * 0.55;
+    // Bias the sweep centre → out: the tear starts at the middle of the
+    // screen and spreads toward the edges, corners last.
+    float bias = dist * 0.55;
     float combined = clamp(tear * 0.6 + bias, 0.0, 1.0);
 
     float thr   = u_progress * 1.5 - 0.25;

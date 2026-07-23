@@ -136,7 +136,7 @@ export default function Hero() {
         <span className="font-sans text-[11px] uppercase tracking-[0.4em] text-[#5B4430]/70 sm:text-xs">
           {hero.subheading}
         </span>
-        <h1 className="font-serif text-[clamp(2rem,8vw,4.5rem)] leading-[0.95] text-[#3A2617] pt-2">
+        <h1 className="font-serif text-[clamp(2rem,8vw,4rem)] leading-[0.95] text-[#3A2617] pt-2">
           {couple.groom}
           <span className="mx-2 italic text-[#C08A3E] sm:mx-5">&amp;</span>
           {couple.bride}
