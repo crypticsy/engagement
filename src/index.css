@@ -8,7 +8,11 @@
 
 @layer base {
   html {
-    scroll-behavior: smooth;
+    /* No `scroll-behavior: smooth` here on purpose — Lenis (see useLenis.ts)
+       drives its own programmatic scrollTo() every frame, and native CSS
+       smooth-scroll stacks a second easing pass on top of Lenis's. On
+       weaker hardware (Android phones especially) the two fight and queue
+       up, which reads as scrolling stalling out partway down the page. */
     overflow-x: hidden;
     background: #fbf3e7;
     /* Mobile Safari/Chrome silently bump computed font sizes ("text
