@@ -1,21 +1,17 @@
 import Hero from '@/components/sections/Hero'
-import Welcome from '@/components/sections/Welcome'
-import Events from '@/components/sections/Events'
+import OurEngagement from '@/components/sections/OurEngagement'
 import Venue from '@/components/sections/Venue'
-import MandalaDivider from '@/components/sections/MandalaDivider'
-import Rsvp from '@/components/sections/Rsvp'
+import Closing from '@/components/sections/Closing'
 import Footer from '@/components/sections/Footer'
 
 export default function Home() {
   return (
     <main className="bg-[#FBF3E7]">
       <Hero />
-      <Welcome />
-      <Events />
+      <OurEngagement />
       <Venue />
-      <Rsvp />
+      <Closing />
       <Footer />
-      <MandalaDivider />
     </main>
   )
 }

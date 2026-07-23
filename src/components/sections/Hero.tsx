@@ -5,7 +5,7 @@ import cloud1 from '@/assets/cloud_1.png'
 import cloud2 from '@/assets/cloud_2.png'
 import cloud3 from '@/assets/cloud_3.png'
 import templeWithTree from '@/assets/temple-with-tree.png'
-import { couple, weddingDate } from '@/config/wedding'
+import { couple, hero } from '@/config/wedding'
 
 /**
  * Recreates public/scene.png as a layered parallax composition — sky.png at
@@ -127,20 +127,20 @@ export default function Hero() {
 
       <div
         ref={titleRef}
-        className="pointer-events-none absolute inset-x-0 top-[18%] flex flex-col items-center gap-5 px-6 text-center sm:top-[16%]"
+        className="pointer-events-none absolute inset-x-0 top-[15%] flex flex-col items-center gap-4 px-6 text-center sm:top-[13%] sm:gap-5"
       >
         <span className="font-kannada text-lg text-[#5B4430]/80 sm:text-xl">{couple.kannadaLine}</span>
-        <span className="font-sans text-[11px] uppercase tracking-[0.4em] text-[#5B4430]/70">
-          Together with our families
+        <h1 className="font-serif text-[clamp(1.9rem,7vw,3.25rem)] leading-[1.05] text-[#3A2617]">
+          {hero.headline}
+        </h1>
+        <span className="font-sans text-[11px] uppercase tracking-[0.4em] text-[#5B4430]/70 sm:text-xs">
+          {hero.subheading}
         </span>
-        <h1 className="font-serif text-[clamp(2.25rem,11vw,4.75rem)] leading-[0.95] text-[#3A2617]">
+        <h1 className="font-serif text-[clamp(2rem,8vw,4.5rem)] leading-[0.95] text-[#3A2617] pt-2">
           {couple.groom}
           <span className="mx-2 italic text-[#C08A3E] sm:mx-5">&amp;</span>
           {couple.bride}
         </h1>
-        <span className="font-sans text-sm uppercase tracking-[0.3em] text-[#5B4430]/80 sm:text-base">
-          {weddingDate.display} · {weddingDate.day}
-        </span>
       </div>
 
       <div className="pointer-events-none absolute inset-x-0 bottom-8 flex flex-col items-center gap-2">

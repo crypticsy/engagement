@@ -3,10 +3,11 @@ import { gsap } from '@/lib/gsap'
 import Reveal from '@/components/ui/Reveal'
 import SectionLabel from '@/components/ui/SectionLabel'
 import mandap from '@/assets/mandap.png'
-import { venue } from '@/config/wedding'
+import together from '@/assets/together.png'
+import { couple, venue } from '@/config/wedding'
 
 export default function Venue() {
-  const mandapRef = useRef<HTMLImageElement>(null)
+  const mandapRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const anim = gsap.to(mandapRef.current, {
@@ -24,34 +25,45 @@ export default function Venue() {
   const mapEmbedSrc = `https://www.google.com/maps?q=${encodeURIComponent(venue.mapsQuery)}&output=embed`
 
   return (
-    <section className="relative overflow-hidden bg-[#F5E9D8] px-6 pb-24 pt-6 sm:px-6 sm:pb-28 lg:pb-32">
-      <SectionLabel eyebrow="Where to find us" title="The Venue" kannada="ಸ್ಥಳ" />
+    <section className="relative overflow-hidden bg-[#F5E9D8] px-6 pb-24 pt-24 sm:px-6 sm:pb-28 sm:pt-28 lg:pb-32 lg:pt-32">
+      <SectionLabel eyebrow="Where to find us" title={venue.title} kannada="ಸ್ಥಳ" />
 
       <Reveal className="relative mx-auto mt-12 max-w-3xl sm:mt-14">
-        <img
-          ref={mandapRef}
-          src={mandap}
-          alt="Decorated engagement mandapam"
-          draggable={false}
-          className="mx-auto w-full max-w-lg"
-        />
+        <div ref={mandapRef} className="relative mx-auto w-full max-w-lg">
+          <img
+            src={mandap}
+            alt="Decorated engagement mandapam"
+            draggable={false}
+            className="w-full"
+          />
+          <img
+            src={together}
+            alt={`${couple.groomFull} and ${couple.brideFull} standing in the mandap`}
+            draggable={false}
+            className="pointer-events-none absolute bottom-[9%] left-1/2 h-[46%] w-auto -translate-x-1/2 object-contain"
+          />
+        </div>
       </Reveal>
 
-      <Reveal delay={0.15} className="mx-auto mt-8 flex max-w-lg flex-col items-center gap-3 text-center">
-        <h3 className="font-serif text-2xl text-[#2A1B12]">{venue.name}</h3>
-        <p className="font-sans text-sm text-[#6B5A4E]">{venue.line1}</p>
-        <p className="font-sans text-sm text-[#6B5A4E]">{venue.line2}</p>
+      <Reveal delay={0.15} className="mx-auto mt-8 flex max-w-lg flex-col items-center gap-3.5 text-center">
+        <h3 className="font-serif text-3xl text-[#2A1B12] sm:text-4xl">{venue.name}</h3>
+        {venue.addressLines.map((line) => (
+          <p key={line} className="font-sans text-base text-[#6B5A4E] sm:text-lg">
+            {line}
+          </p>
+        ))}
         <a
           href={venue.mapsUrl}
           target="_blank"
           rel="noreferrer"
-          className="mt-4 inline-flex items-center gap-2 rounded-full border border-[#C08A3E] px-6 py-3 font-sans text-xs uppercase tracking-[0.25em] text-[#7C2233] transition-colors hover:bg-[#C08A3E] hover:text-[#FFFDF9]"
+          className="mt-4 inline-flex items-center gap-2 rounded-full border border-[#C08A3E] px-6 py-3 font-sans text-sm uppercase tracking-[0.25em] text-[#7C2233] transition-colors hover:bg-[#C08A3E] hover:text-[#FFFDF9]"
         >
           Get Directions
         </a>
-        <p className="mt-6 max-w-md font-sans text-[13px] italic leading-relaxed text-[#7A5C48]">
-          {venue.note}
-        </p>
+        <div className="mt-6 flex max-w-md flex-col items-center gap-2">
+          <span className="font-sans text-xs uppercase tracking-[0.3em] text-[#A8455A]">Note</span>
+          <p className="font-sans text-base italic leading-relaxed text-[#7A5C48] sm:text-lg">{venue.note}</p>
+        </div>
       </Reveal>
 
       <Reveal delay={0.25} className="mx-auto mt-12 max-w-3xl">

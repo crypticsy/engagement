@@ -11,80 +11,39 @@ export const couple = {
   kannadaLine: 'ನಿಶ್ಚಿತಾರ್ಥದ ಆಹ್ವಾನ',
 } as const
 
+export const hero = {
+  headline: 'You Are Joyfully Invited',
+  subheading: 'To the Engagement Ceremony of',
+} as const
+
 export const weddingDate = {
-  // South Indian ceremonies are timed to an auspicious muhurtham
-  iso: '2027-02-14T06:30:00+05:30',
-  display: '14th February 2027',
-  day: 'Sunday',
-  muhurtham: '6:30 – 7:15 AM',
+  iso: '2026-11-22T00:00:00+05:30',
+  display: '22 November 2026',
+} as const
+
+export const engagement = {
+  eyebrow: 'Our Engagement',
+  title: 'Save the Date',
+  text: 'Join us as we celebrate the beginning of our journey together. We would be delighted to have you with us as we mark this special occasion with our family and friends.',
 } as const
 
 export const venue = {
-  name: 'Shree Kadri Kalyana Mantapa',
-  line1: 'Kadri Temple Road',
-  line2: 'Mangalore, Karnataka 575002',
-  mapsQuery: 'Kadri Kalyana Mantapa, Mangalore, Karnataka',
-  mapsUrl: 'https://maps.google.com/?q=Kadri+Kalyana+Mantapa+Mangalore+Karnataka',
-  note: 'Parking is available on-site. Valets will be stationed at the main gate from 5:30 AM.',
+  title: 'Venue',
+  name: 'Vanitha Achuth Pai Convention Centre',
+  addressLines: [
+    'Temple, MarryHill, Behind Padavinangadi,',
+    'Airport Rd, Mary Hill, Konchady,',
+    'Mangaluru',
+  ],
+  note: 'Lunch will be served at the venue following the engagement ceremony.',
+  mapsQuery: 'Vanitha Achuth Pai Convention Centre, Mangaluru',
+  mapsUrl: 'https://maps.google.com/?q=Vanitha+Achuth+Pai+Convention+Centre+Mangaluru',
 } as const
 
-export interface WeddingEvent {
-  id: string
-  title: string
-  kannada?: string
-  date: string
-  time: string
-  place: string
-  description: string
-}
-
-export const events: WeddingEvent[] = [
-  {
-    id: 'mehendi',
-    title: 'Mehendi & Sangeet',
-    kannada: 'ಗೋರಂಟಿ',
-    date: 'Friday, 12th February',
-    time: '5:00 PM onwards',
-    place: 'Ocean Pearl Resort, Someshwara Beach, Mangalore',
-    description:
-      'An evening of henna, music and mischief — come in your brightest colours and be ready to dance.',
-  },
-  {
-    id: 'nischayathartham',
-    title: 'Nischayathartham',
-    kannada: 'ನಿಶ್ಚಿತಾರ್ಥ',
-    date: 'Sunday, 14th February',
-    time: '6:30 – 7:15 AM',
-    place: 'Shree Kadri Kalyana Mantapa',
-    description:
-      'Rings are exchanged at the auspicious hour beneath the mandapam, guided by our family purohit.',
-  },
-  {
-    id: 'reception',
-    title: 'Reception',
-    kannada: 'ಸ್ವಾಗತ ಸಮಾರಂಭ',
-    date: 'Sunday, 14th February',
-    time: '7:00 – 10:00 PM',
-    place: 'Shree Kadri Kalyana Mantapa — Banquet Lawn',
-    description:
-      'Join us for dinner under the stars as we celebrate the beginning of our story together.',
-  },
-]
-
-export const hosts = {
-  brideParents: 'Mr. & Mrs. Sharma',
-  groomParents: 'Mr. & Mrs. Rao',
+export const closing = {
+  title: 'We Look Forward to Celebrating With You',
+  text: 'Your presence and blessings will make our engagement celebration truly memorable. We look forward to sharing this special day with you.',
 } as const
-
-export const contacts = [
-  { name: 'Deepa (Bride\'s side)', phone: '+91 98765 43210' },
-  { name: 'Karthik (Groom\'s side)', phone: '+91 91234 56789' },
-]
-
-// Google Apps Script Web App URL — deploy scripts/google-apps-script.gs to a
-// Google Sheet, then paste the /exec URL here or into a .env file as
-// VITE_RSVP_SCRIPT_URL. See README.md for the full setup walkthrough.
-export const rsvpEndpoint = import.meta.env.VITE_RSVP_SCRIPT_URL ?? ''
 
 export const theme = {
   // Palette lifted from the "from-me-to-you" reference: warm cream paper,
