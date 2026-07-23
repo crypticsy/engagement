@@ -33,11 +33,14 @@
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    /* Scoped to body only, and to the y-axis only — putting
-       overscroll-behavior on <html> (or using the unscoped shorthand) is
-       known to stall touch scrolling entirely on some Android/Chrome
-       builds right at a section's overflow:hidden boundary (e.g. Hero). */
-    overscroll-behavior-y: none;
+    /* No `overscroll-behavior` here at all, even scoped to the y-axis on
+       body — that was meant to suppress the pull-to-refresh bounce, but on
+       Android/Chrome it's what was swallowing the initial single-finger
+       touchstart at a section's overflow:hidden boundary (e.g. right after
+       Hero), so a normal one-finger swipe did nothing and only a pinch
+       (which bypasses that gesture-recognition path) could scroll. Not
+       worth the tradeoff — losing the bounce-suppression is cosmetic,
+       breaking scroll isn't. */
   }
 
   ::selection {
