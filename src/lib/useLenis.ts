@@ -11,6 +11,15 @@ export function useLenis(enabled: boolean) {
   useEffect(() => {
     if (!enabled) return
 
+    // Lenis's whole job — easing discrete wheel deltas into inertial motion
+    // — is already handled natively on touch devices, so it isn't just
+    // redundant there: its raf-loop scroll-position sync fights the
+    // browser's own touch-scroll animation on Android, which is what was
+    // causing scrolling to stall or lock up entirely. ScrollTrigger listens
+    // to native scroll events on its own and doesn't need Lenis in the loop
+    // to work, so touch devices just get native scrolling instead.
+    if (window.matchMedia('(pointer: coarse)').matches) return
+
     const lenis = new Lenis({
       duration: 1.15,
       smoothWheel: true,
