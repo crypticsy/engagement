@@ -30,7 +30,7 @@ export const engagement = {
 export const venue = {
   title: 'Venue',
   name: 'Vanitha Achuth Pai Convention Centre',
-  addressLines: ['Venue: Vanitha Achuth Pai Convention Center,', 'Maryhill, Konchady, Mangalore'],
+  addressLines: ['Maryhill, Konchady, Mangalore'],
   note: 'Lunch will be served at the venue following the engagement ceremony.',
   mapsUrl: 'https://maps.google.com/?q=Vanitha+Achuth+Pai+Convention+Centre+Mangaluru',
   // Google's own "Share > Embed a map" snippet for the venue, rather than

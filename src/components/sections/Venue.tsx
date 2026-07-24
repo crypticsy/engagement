@@ -59,8 +59,7 @@ export default function Venue() {
           Get Directions
         </a>
         <div className="mt-6 flex max-w-md flex-col items-center gap-2">
-          <span className="font-sans text-xs uppercase tracking-[0.3em] text-[#A8455A]">Note</span>
-          <p className="font-sans text-base italic leading-relaxed text-[#7A5C48] sm:text-lg">{venue.note}</p>
+          <p className="font-sans text-sm italic leading-relaxed text-[#7A5C48] sm:text-base">{venue.note}</p>
         </div>
       </Reveal>
 
