@@ -22,8 +22,6 @@ export default function Venue() {
     }
   }, [])
 
-  const mapEmbedSrc = `https://www.google.com/maps?q=${encodeURIComponent(venue.mapsQuery)}&output=embed`
-
   return (
     <section className="relative overflow-hidden bg-[#F5E9D8] px-6 pb-24 pt-24 sm:px-6 sm:pb-28 sm:pt-28 lg:pb-32 lg:pt-32">
       <SectionLabel eyebrow="Where to find us" title={venue.title} kannada="ಸ್ಥಳ" />
@@ -68,17 +66,25 @@ export default function Venue() {
 
       <Reveal delay={0.25} className="mx-auto mt-12 max-w-3xl">
         <div
-          className="h-56 overflow-hidden rounded-sm border border-[#E4D2B4] sm:h-80"
+          className="relative h-56 overflow-hidden rounded-sm border border-[#E4D2B4] sm:h-80"
           style={{ boxShadow: '0 12px 28px rgba(60,40,20,0.08)' }}
         >
           <iframe
             title="Venue map"
-            src={mapEmbedSrc}
+            src={venue.mapsEmbedSrc}
             width="100%"
             height="100%"
-            style={{ border: 0, filter: 'sepia(12%) saturate(85%)' }}
+            style={{ border: 0 }}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
+          />
+          {/* Same warm/muted tint as the old `filter: sepia()` on the
+              iframe itself, but as a blend overlay instead — a CSS filter
+              forces GPU compositing of the (cross-origin) iframe, which is
+              a known Android Chrome bug that renders the map blank. */}
+          <div
+            className="pointer-events-none absolute inset-0"
+            style={{ backgroundColor: '#C08A3E', opacity: 0.1, mixBlendMode: 'multiply' }}
           />
         </div>
       </Reveal>
