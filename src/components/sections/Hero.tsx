@@ -127,7 +127,7 @@ export default function Hero() {
 
       <div
         ref={titleRef}
-        className="pointer-events-none absolute inset-x-0 top-[15%] flex flex-col items-center gap-4 px-6 text-center sm:top-[13%] sm:gap-5"
+        className="pointer-events-none absolute inset-x-0 top-[30%] -translate-y-1/2 flex flex-col items-center gap-4 px-6 text-center sm:top-[13%] sm:translate-y-0 sm:gap-5"
       >
         <span className="font-kannada text-lg text-[#5B4430]/80 sm:text-xl">{couple.kannadaLine}</span>
         <h1 className="font-serif text-[clamp(1.9rem,7vw,3.25rem)] leading-[1.05] text-[#3A2617]">
