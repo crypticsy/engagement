@@ -143,18 +143,19 @@ export default function Hero() {
         </h1>
       </div>
 
-      
-      <div className="pointer-events-none absolute inset-x-0 bottom-8 flex flex-col items-center gap-2">
+      {/* Stronger gradient at the very bottom so the scroll cue stays legible over any artwork behind it */}
+      <div
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-48"
+        style={{ background: 'linear-gradient(180deg, transparent 0%, rgba(10,10,10,0.6) 100%)' }}
+      />
+
+      <div className="pointer-events-none absolute inset-x-0 bottom-8 flex flex-col items-center animate-bounce">
         <span
-          className="font-sans text-[10px] uppercase tracking-[0.35em] text-white"
-          style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85), 0 1px 12px rgba(0,0,0,0.5)' }}
+          className="font-sans text-xs font-semibold uppercase tracking-[0.3em] text-white sm:text-sm"
+          style={{ textShadow: '0 1px 4px rgba(0,0,0,0.9), 0 2px 16px rgba(0,0,0,0.65)' }}
         >
-          Scroll
+          Scroll down to access
         </span>
-        <span
-          className="h-6 w-px animate-pulse bg-white"
-          style={{ filter: 'drop-shadow(0 1px 3px rgba(0,0,0,0.85))' }}
-        />
       </div>
     </section>
   )

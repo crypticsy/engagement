@@ -30,11 +30,7 @@ export const engagement = {
 export const venue = {
   title: 'Venue',
   name: 'Vanitha Achuth Pai Convention Centre',
-  addressLines: [
-    'Temple, MarryHill, Behind Padavinangadi,',
-    'Airport Rd, Mary Hill, Konchady,',
-    'Mangaluru',
-  ],
+  addressLines: ['Venue: Vanitha Achuth Pai Convention Center,', 'Maryhill, Konchady, Mangalore'],
   note: 'Lunch will be served at the venue following the engagement ceremony.',
   mapsUrl: 'https://maps.google.com/?q=Vanitha+Achuth+Pai+Convention+Centre+Mangaluru',
   // Google's own "Share > Embed a map" snippet for the venue, rather than
@@ -43,7 +39,7 @@ export const venue = {
   // `intent://` deep link into the Maps app, which can't be navigated to
   // inside an iframe and shows as "Webpage not available" on Android.
   mapsEmbedSrc:
-    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1393.3489066678285!2d74.86579332726916!3d12.908870886415828!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35b574fdf7391%3A0xa9e157395c5ee84f!2sVanitha%20Achuth%20Pai%20Convention%20Centre!5e0!3m2!1sen!2suk!4v1784851605909!5m2!1sen!2suk',
+    'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62223.72642264039!2d74.83154361598469!3d12.908820399737037!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba35b574fdf7391%3A0xa9e157395c5ee84f!2sVanitha%20Achuth%20Pai%20Convention%20Centre!5e0!3m2!1sen!2suk!4v1784880844841!5m2!1sen!2suk',
 } as const
 
 export const closing = {

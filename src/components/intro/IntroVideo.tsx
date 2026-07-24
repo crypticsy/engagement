@@ -139,20 +139,22 @@ export default function IntroVideo({ onFinished }: Props) {
 
       {/* Scroll-to-begin cue */}
       <div
-        className={`pointer-events-none absolute inset-x-0 bottom-10 flex flex-col items-center gap-3 transition-opacity duration-700 ${
+        className={`pointer-events-none absolute inset-x-0 bottom-0 h-48 transition-opacity duration-700 ${
+          started ? 'opacity-0' : ready ? 'opacity-100' : 'opacity-0'
+        }`}
+        style={{ background: 'linear-gradient(180deg, transparent 0%, rgba(10,10,10,0.6) 100%)' }}
+      />
+      <div
+        className={`pointer-events-none absolute inset-x-0 bottom-10 flex flex-col items-center animate-bounce transition-opacity duration-700 ${
           started ? 'opacity-0' : ready ? 'opacity-100' : 'opacity-0'
         }`}
       >
         <span
-          className="font-sans text-[11px] uppercase tracking-[0.35em] text-white"
-          style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85), 0 1px 12px rgba(0,0,0,0.5)' }}
+          className="font-sans text-xs font-semibold uppercase tracking-[0.3em] text-white sm:text-sm"
+          style={{ textShadow: '0 1px 4px rgba(0,0,0,0.9), 0 2px 16px rgba(0,0,0,0.65)' }}
         >
           Scroll to begin
         </span>
-        <span
-          className="h-8 w-[1px] animate-pulse bg-white"
-          style={{ filter: 'drop-shadow(0 1px 3px rgba(0,0,0,0.85))' }}
-        />
       </div>
 
       {/* Skip affordance — reads "Loading…" if tapped before the home
@@ -161,8 +163,8 @@ export default function IntroVideo({ onFinished }: Props) {
         type="button"
         onClick={requestFinish}
         disabled={pendingFinish && !assetsReady}
-        className="absolute right-5 top-5 font-sans text-[11px] uppercase tracking-[0.25em] text-white/90 transition-colors hover:text-white disabled:cursor-wait disabled:opacity-70 sm:right-8 sm:top-8"
-        style={{ textShadow: '0 1px 4px rgba(0,0,0,0.85), 0 1px 12px rgba(0,0,0,0.5)' }}
+        className="absolute right-5 top-5 font-sans text-[11px] uppercase tracking-[0.25em] text-black/90 transition-colors hover:text-black disabled:cursor-wait disabled:opacity-70 sm:right-8 sm:top-8"
+        style={{ textShadow: '0 1px 4px rgba(255,255,255,0.85), 0 1px 12px rgba(255,255,255,0.5)' }}
       >
         {pendingFinish && !assetsReady ? 'Loading…' : 'Skip'}
       </button>
